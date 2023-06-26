@@ -8,14 +8,7 @@ public class UserDAO {
 		return userList;
 	}
 	
-	public void create() {
-		User newUser = new User();
-		newUser.setId(12345);
-		newUser.setFirstName("Irfu");
-		newUser.setLastName("Kohli");
-		newUser.setEmail("irfu@gmail.com");
-		newUser.setPassword("adaikalam");
-		newUser.setActive(true);
+	public void create(User newUser) {
 		
 		UserList.listOfUsers[0] = newUser;
 	}

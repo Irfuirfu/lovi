@@ -7,19 +7,27 @@ public class App {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		UserService  userService = new UserService();
+		UserService userService;
+		User newUser;
 		
-		User newUser = new User();
-		newUser.setId(003);
-		newUser.setFirstName("Irfan");
-		newUser.setLastName("Kohli");
-		newUser.setEmail("irfan@gmail.com");
-		newUser.setPassword("adaikalam");
-		newUser.setActive(true);
 		
-		userService.create(newUser);
-		userService.getAll();
+		try {
+			UserService  userService1 = new UserService();
+			
+			User newUser1 = new User();
+			newUser1.setId(003);
+			newUser1.setFirstName("Irfan");
+			newUser1.setLastName("Kohli");
+			newUser1.setEmail("irfan@gmail.com");
+			newUser1.setPassword("adaikalam");
+			newUser1.setActive(true);
+			
+			userService1.create(newUser1);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//userService1.getAll();
 	}
 
 }

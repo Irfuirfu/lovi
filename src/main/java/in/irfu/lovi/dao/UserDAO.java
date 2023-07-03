@@ -9,7 +9,51 @@ public class UserDAO {
 	}
 	
 	public void create(User newUser) {
+	
 		
-		UserList.listOfUsers[0] = newUser;
+		User[] arr = UserList.listOfUsers;
+		   for(int i=0; i<arr.length; i++) {
+			  User user = arr[i];
+			  if(user == null) {
+				  arr[i] = newUser;
+				 break;
+			  }
+			
+		}
+	}
+	/**
+	 *i
+	 * @param id
+	 * @param updateUser
+	 */
+	public void update(int id, User updateUser) {
+		User[] arr = UserList.listOfUsers;
+		for (int i = 0; i < arr.length; i++) {
+			User user = arr[i];
+			//if (user == null) {
+				//continue;
+			//}
+			if (user.getId() == id) {
+//				user.setFirstName("Irfan");
+				arr[i].setFirstName(updateUser.getFirstName());
+				break;
+			}
+		}
+	}
+	
+	public User findById(int userId) {
+		User[] arr = UserList.listOfUsers;
+		User userMatch = null;
+		for (int i = 0; i < arr.length; i++) {
+			User user = arr[i];
+			if (user == null) {
+				continue;
+			}
+			if (user.getId() == userId) {
+				userMatch = user;
+				break;
+			}
+		}
+		return userMatch;
 	}
 }

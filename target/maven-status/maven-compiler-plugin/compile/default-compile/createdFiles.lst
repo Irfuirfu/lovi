@@ -1,0 +1,6 @@
+in\irfu\lovi\service\UserService.class
+in\irfu\lovi\model\User.class
+in\irfu\lovi\dao\UserList.class
+in\irfu\lovi\App.class
+Validation\UserValidator.class
+in\irfu\lovi\dao\UserDAO.class

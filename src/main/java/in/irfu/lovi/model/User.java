@@ -47,7 +47,7 @@ public class User {
 	String email;
 	String password;
 	int id;
-	boolean isActive;
+	boolean isActive = true;
 	public String fullName() {
 		return firstName.concat("").concat(lastName);
 	}

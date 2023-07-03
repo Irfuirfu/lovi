@@ -1,5 +1,6 @@
 package in.irfu.lovi;
 
+import in.irfu.lovi.model.User;
 import in.irfu.lovi.service.UserService;
 
 public class App {
@@ -9,8 +10,15 @@ public class App {
 
 		UserService  userService = new UserService();
 		
-		userService.create();
+		User newUser = new User();
+		newUser.setId(003);
+		newUser.setFirstName("Irfan");
+		newUser.setLastName("Kohli");
+		newUser.setEmail("irfan@gmail.com");
+		newUser.setPassword("adaikalam");
+		newUser.setActive(true);
 		
+		userService.create(newUser);
 		userService.getAll();
 	}
 

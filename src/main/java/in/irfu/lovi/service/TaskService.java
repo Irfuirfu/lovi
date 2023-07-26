@@ -1,44 +1,51 @@
 package in.irfu.lovi.service;
+
+import java.time.format.DateTimeParseException;
 import in.irfu.lovi.dao.TaskDAO;
+import in.irfu.lovi.exception.ValidationException;
 import in.irfu.lovi.model.Task;
 import in.irfu.lovi.Validation.TaskValidator;
 
-	public class TaskService {
-		public Task[] getAll() {
+import java.util.Set;
 
-			TaskDAO taskDao = new TaskDAO();
-
-			Task[] taskList = taskDao.findAll();
-
-			for (int i = 0; i < taskList.length; i++) {
-				System.out.println(taskList[i]);
-			}
-			return taskList;
+public class TaskService {
+	public Set<Task> getAll() {
+		TaskDAO taskDao = new TaskDAO();
+		Set<Task> taskList = taskDao.findAll();
+		for (Task task : taskList) {
+			System.out.println(task);
 		}
-
-		public void create(Task newTask) throws Exception {
-			TaskValidator.validate(newTask);
-			TaskDAO taskDao = new TaskDAO();
-			taskDao.create(newTask);
-
-		}
-
-		public void update(int id, Task updateTask) {
-			// Task updateTask = new Task();
-			TaskDAO taskDao = new TaskDAO();
-			taskDao.update(001, updateTask);
-		}
-
-		public void delete() {
-			Task deleteTask = new Task();
-			TaskDAO taskDao = new TaskDAO();
-			taskDao.delete(001);
-		}
-
-		public Task findById(int id) {
-			TaskDAO taskDao = new TaskDAO();
-			Task task = taskDao.findById(id);
-			return task;
-		}
+		return taskList;
 	}
 
+
+	public void create(Task newTask) throws Exception {
+		try {
+			TaskValidator.Validate(newTask);
+		} catch (DateTimeParseException e) {
+			throw new ValidationException("Invalid date format or Invalid Date");
+		}
+
+		TaskValidator.Validate(newTask);
+		TaskDAO taskDao = new TaskDAO();
+		taskDao.create(newTask);
+	}
+
+	public void update(int id, Task updateTask) throws Exception {
+		TaskValidator.Validate(updateTask);
+		TaskDAO taskDao = new TaskDAO();
+		taskDao.update(id, updateTask);
+	}
+	
+	
+	public void delete(int taskId) {
+		TaskDAO taskDao = new TaskDAO();
+		taskDao.delete(1);
+	}
+
+	public void findById(int taskId) {
+		TaskDAO taskDao = new TaskDAO();
+		taskDao.delete(taskId);
+	}
+
+}

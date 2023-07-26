@@ -8,16 +8,35 @@
 	  <maven.compiler.target>17</maven.compiler.target>
   </properties>
   <dependencies>
-	  <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
-<dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter-api</artifactId>
-    <version>5.8.2</version>
-    <scope>test</scope>
-</dependency>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<!--https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+		<!-- https://mvnrepository.com/artifact/io.github.cdimascio/java-dotenv -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.28</version>
+		</dependency>
 
-  </dependencies>
-  <build>
+		<dependency>
+			<groupId>com.fssa.corejava</groupId>
+			<artifactId>template</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.github.cdimascio</groupId>
+			<artifactId>java-dotenv</artifactId>
+			<version>5.2.2</version>
+		</dependency>
+
+	</dependencies>
+	<build>
 
 		<pluginManagement><!-- lock down plugins versions to avoid using Maven
 			defaults (may be moved to parent pom) -->

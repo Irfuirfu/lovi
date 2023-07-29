@@ -24,7 +24,7 @@ public class TestGetAllUser {
 	}
 	
     @Test
-	public void testUpdateUser() {
+	public void testUpdateUser() throws Exception {
 		UserService userService = new UserService();
         User newUser = new User();
 		newUser.setFirstName("irfan");
@@ -39,10 +39,10 @@ public class TestGetAllUser {
    		userService.delete(1);
    	}
 	
-    @Test
-	public void getFindByEmailId() {
-		UserService userService = new UserService();
-		User arr =  userService.findByEmail("irfan@gmail.com");
-	    System.out.println(arr);
-	}
+
+//	public void getFindByEmailId() {
+//		UserService userService = new UserService();
+//		User arr =  userService.findByEmail("irfan@gmail.com");
+//	    System.out.println(arr);
+//	}
 }

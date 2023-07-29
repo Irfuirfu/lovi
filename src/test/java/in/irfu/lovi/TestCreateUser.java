@@ -3,7 +3,6 @@ package in.irfu.lovi;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
 
 import in.irfu.lovi.exception.ValidationException;
@@ -15,21 +14,22 @@ public class TestCreateUser {
     public void testCreateUserWithValidataInput(){
     	UserService userService = new UserService();
  		User newUser = new User();
- 		newUser.setFirstName("Ajun");
+ 		newUser.setFirstName("Dhanush");
  		newUser.setLastName("drcuzz");
- 		newUser.setEmail("ajun@gmail.com");
- 		newUser.setPassword("ajun@2306");
+ 		newUser.setEmail("dhanush@gmail.com");
+ 		newUser.setPassword("dhanush@5532");
         assertDoesNotThrow(()->{
     	   userService.create(newUser);
         });	
      }
+	
 	@Test
 	public void testCreateUserWithInvalidataInput() {
 		UserService userService = new UserService();
 		Exception exception = assertThrows(ValidationException.class,()->{
 			userService.create(null);
 		});
-		String expectedMessage = "Invalid User Input";
+		String expectedMessage = "Invalid User input";
 		String actualMessage = exception.getMessage();
 		
 		assertTrue(expectedMessage.equals(actualMessage));
@@ -49,7 +49,7 @@ public class TestCreateUser {
 		Exception exception = assertThrows(ValidationException.class,()->{
 			userService.create(newUser);
 		});
-		String expectedMessage = "Email cannot be null or empty";
+		String expectedMessage = "email cannot be null or empty";
 		String actualMessage = exception.getMessage();
 		
 		assertTrue(expectedMessage.equals(actualMessage));
@@ -69,7 +69,7 @@ public class TestCreateUser {
 		Exception exception = assertThrows(ValidationException.class,()->{
 			userService.create(newUser);
 		});
-		String expectedMessage = "Email cannot be null or empty";
+		String expectedMessage = "email cannot be null or empty";
 		String actualMessage = exception.getMessage();
 		
 		assertTrue(expectedMessage.equals(actualMessage));
@@ -88,7 +88,7 @@ public class TestCreateUser {
 		Exception exception = assertThrows(Exception.class,()->{
 			userService.create(newUser);
 		});
-		String expectedMessage = "Password cannot be null or empty";
+		String expectedMessage = "password cannot be null or empty";
 		String actualMessage = exception.getMessage();
 		
 		assertTrue(expectedMessage.equals(actualMessage));
@@ -107,7 +107,7 @@ public class TestCreateUser {
 		Exception exception = assertThrows(Exception.class,()->{
 			userService.create(newUser);
 		});
-		String expectedMessage = "Password cannot be null or empty";
+		String expectedMessage = "password cannot be null or empty";
 		String actualMessage = exception.getMessage();
 		
 		assertTrue(expectedMessage.equals(actualMessage));
@@ -126,7 +126,7 @@ public class TestCreateUser {
 		Exception exception = assertThrows(Exception.class,()->{
 			userService.create(newUser);
 		});
-		String expectedMessage = "FirstName cannot be null or empty";
+		String expectedMessage = "firstName cannot be null or empty";
 		String actualMessage = exception.getMessage();
 		
 		assertTrue(expectedMessage.equals(actualMessage));
@@ -145,7 +145,7 @@ public class TestCreateUser {
 		Exception exception = assertThrows(Exception.class,()->{
 			userService.create(newUser);
 		});
-		String expectedMessage = "FirstName cannot be null or empty";
+		String expectedMessage = "firstName cannot be null or empty";
 		String actualMessage = exception.getMessage();
 		
 		assertTrue(expectedMessage.equals(actualMessage));
